@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Date Ideas — My Lovely</title>
+
+    <meta name="description" content="Every plan, every maybe, every one day we should — written down and ready to pick from.">
+
+    <link rel="stylesheet" href="decor.css">
+    <link rel="stylesheet" href="dates.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        /* Failsafe: if a script fails, the page still shows its content. */
+        document.documentElement.className += " js";
+        window.setTimeout(function () {
+            if (!window.ML) {
+                document.documentElement.className += " reveal-failsafe";
+            }
+        }, 2000);
+    </script>
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main id="dates-page">
+
+        <!-- ================= SPOTLIGHT (The Big One) ================= -->
+
+        <section class="section-pad">
+
+            <div class="spotlight reveal">
+
+                <div class="spotlight-copy">
+                    <p class="eyebrow">The big one</p>
+                    <h2>Our first meet-up.</h2>
+                    <p class="spotlight-note">
+                        27 December 2026 — the day the story finally steps
+                        out from behind the screen. Every idea below is
+                        building towards moments like this one.
+                    </p>
+                    <div class="page-actions" style="margin-top:18px;">
+                        <button class="button button-light button-small" type="button" id="dates-focus-meetup">
+                            Show meet-up ideas
+                        </button>
+                    </div>
+                </div>
+
+                <div class="spotlight-count">
+                    <span class="spotlight-label">Until we meet</span>
+                    <div class="spotlight-clock">
+                        <div class="clock-unit"><strong id="meet-days">000</strong><small>days</small></div>
+                        <div class="clock-sep">:</div>
+                        <div class="clock-unit"><strong id="meet-hours">00</strong><small>hours</small></div>
+                        <div class="clock-sep">:</div>
+                        <div class="clock-unit"><strong id="meet-mins">00</strong><small>mins</small></div>
+                        <div class="clock-sep">:</div>
+                        <div class="clock-unit"><strong id="meet-secs">00</strong><small>secs</small></div>
+                    </div>
+                    <p class="spotlight-tag" id="meet-tag">One day closer, My Lovely.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HERO (Date Ideas Intro) ================= -->
+
+        <section class="page-hero section-pad dates-hero" style="padding-top:0;">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Date ideas</p>
+                    <h1>Things we keep saying we'd do.</h1>
+                    <p class="page-lede">
+                        Every plan, every maybe, every <em>one day we should</em>.
+                        Write them down here, pick one when the day is free,
+                        and cross it off together.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <span class="badge" id="dates-count">0 ideas</span>
+                    <div class="page-actions">
+                        <button class="button button-primary button-small" type="button" id="dates-pick">
+                            Pick for us
+                            <span aria-hidden="true">✦</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PICKED RESULT ================= -->
+
+        <section class="section-pad" style="padding-top:0;">
+
+            <div class="pick-result" id="dates-pick-result" hidden>
+                <small>Today's idea, then</small>
+                <strong id="dates-pick-title"></strong>
+                <span id="dates-pick-note"></span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADD A DATE IDEA ================= -->
+
+        <section class="section-pad" style="padding-top:10px;">
+
+            <div class="panel reveal">
+
+                <div class="panel-head">
+                    <h2 class="panel-title">Add a date idea</h2>
+                    <p class="panel-note">Saved on this device, for both of you</p>
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="field">
+                        <label for="dates-title">What is the idea</label>
+                        <input type="text" id="dates-title" class="input" placeholder="Sunset walk by the water" autocomplete="off">
+                    </div>
+
+                    <div class="field">
+                        <label for="dates-category">What kind of date</label>
+                        <select id="dates-category" class="select"></select>
+                    </div>
+
+                    <div class="field">
+                        <label for="dates-who">Who thought of it</label>
+                        <select id="dates-who" class="select">
+                            <option value="khalil">Khalil</option>
+                            <option value="ilham">Ilham</option>
+                            <option value="both">Both of us</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="dates-when">When (if you know)</label>
+                        <input type="date" id="dates-when" class="input">
+                    </div>
+
+                </div>
+
+                <div class="field" style="margin-top:14px;">
+                    <label for="dates-notes">A little note</label>
+                    <textarea id="dates-notes" class="textarea" rows="2" placeholder="Optional — details, place, or the joke behind it"></textarea>
+                </div>
+
+                <div class="cluster" style="margin-top:16px;">
+                    <button class="button button-primary button-small" type="button" id="dates-add">
+                        Add the idea
+                    </button>
+                    <button class="button button-ghost button-small" type="button" id="dates-export">
+                        Download backup
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= THE COLLECTION ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">The collection</p>
+                    <h2>Every idea, in one place.</h2>
+                </div>
+                <select class="select" id="dates-filter" style="max-width:220px;" aria-label="Filter the ideas">
+                    <option value="all">Everything</option>
+                    <option value="idea">Just ideas</option>
+                    <option value="planned">Planned</option>
+                    <option value="done">Done</option>
+                </select>
+            </div>
+
+            <div class="category-strip" id="dates-categories"></div>
+
+            <div class="idea-grid" id="dates-grid"></div>
+
+            <div class="empty-state" id="dates-empty" hidden>
+                <strong>Nothing here yet</strong>
+                <p>Add the first idea above and it will show up right here.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+    <script src="dates.js"></script>
+
+</body>
+</html>

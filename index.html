@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Lovely — Our Story</title>
+
+    <meta name="description" content="A little corner of the internet that belongs to Khalil and Ilham.">
+
+    <link rel="stylesheet" href="decor.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        /* Failsafe: if a script fails, the page still shows its content. */
+        document.documentElement.className += " js";
+        window.setTimeout(function () {
+            if (!window.ML) {
+                document.documentElement.className += " reveal-failsafe";
+            }
+        }, 2000);
+    </script>
+</head>
+
+<body class="page-shell">
+
+    <!-- ================= AMBIENT ================= -->
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero section-pad">
+
+            <div class="hero-copy reveal">
+                <p class="eyebrow">For Ilham, My Lovely</p>
+                <h1>
+                    A little corner of the internet
+                    <em>that belongs to us.</em>
+                </h1>
+                <p class="hero-intro">
+                    A little place for our conversations,
+                    memories, jokes, dreams, prayers and
+                    all the little moments that slowly became
+                    our story.
+                </p>
+                <div class="hero-actions">
+                    <a href="story.html" class="button button-primary">
+                        Explore our story
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    <a href="conversations.html" class="button button-ghost">
+                        See a moment
+                        <span aria-hidden="true">♡</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-card reveal reveal-delay">
+                <div class="hero-card-top">
+                    <span class="tiny-label">Our beginning</span>
+                    <span class="status-dot"></span>
+                </div>
+                <div class="date-display">
+                    <span class="date-day">27</span>
+                    <div>
+                        <span class="date-month">September</span>
+                        <span class="date-year">2025</span>
+                    </div>
+                </div>
+                <p class="hero-card-title">
+                    The day our story started
+                    with a message on Discord.
+                </p>
+                <p class="hero-card-note">
+                    Some of the most important chapters
+                    begin with something as small as
+                    a message.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= COUNTDOWN ================= -->
+
+        <section class="countdown-section section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">The next chapter</p>
+                    <h2>Counting down to our first meet-up.</h2>
+                </div>
+                <p class="section-note">December 27, 2026</p>
+            </div>
+
+            <div class="countdown-card reveal">
+
+                <div class="countdown-main">
+                    <span class="countdown-label">Until we finally meet</span>
+                    <div class="countdown-grid">
+                        <div class="count-unit">
+                            <strong id="days">000</strong>
+                            <span>Days</span>
+                        </div>
+                        <div class="count-separator">:</div>
+                        <div class="count-unit">
+                            <strong id="hours">00</strong>
+                            <span>Hours</span>
+                        </div>
+                        <div class="count-separator">:</div>
+                        <div class="count-unit">
+                            <strong id="minutes">00</strong>
+                            <span>Minutes</span>
+                        </div>
+                        <div class="count-separator">:</div>
+                        <div class="count-unit">
+                            <strong id="seconds">00</strong>
+                            <span>Seconds</span>
+                        </div>
+                    </div>
+                    <p class="countdown-message" id="countdown-message">
+                        One day closer, My Lovely.
+                    </p>
+                </div>
+
+                <div class="countdown-side">
+                    <div class="mini-date">
+                        <span>27</span>
+                        <small>DEC<br>2026</small>
+                    </div>
+                    <p>
+                        One of those dates that already
+                        feels special before it has even
+                        arrived.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STORY ================= -->
+
+        <section class="story-snapshot section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">A story in a few dates</p>
+                    <h2>Where it all began.</h2>
+                </div>
+                <a href="story.html" class="text-link">View full timeline →</a>
+            </div>
+
+            <div class="timeline-grid">
+
+                <article class="timeline-card reveal">
+                    <span class="timeline-index">01</span>
+                    <div class="timeline-icon">✦</div>
+                    <span class="timeline-date">27 September 2025</span>
+                    <h3>First message</h3>
+                    <p>Our story begins on Discord. One message, then another, then another...</p>
+                </article>
+
+                <article class="timeline-card featured reveal reveal-delay">
+                    <span class="timeline-index">02</span>
+                    <div class="timeline-icon">☏</div>
+                    <span class="timeline-date">23 June 2026</span>
+                    <h3>First call</h3>
+                    <p>The messages became a voice, and everything suddenly felt a little more real.</p>
+                </article>
+
+                <article class="timeline-card reveal reveal-delay-2">
+                    <span class="timeline-index">03</span>
+                    <div class="timeline-icon">♡</div>
+                    <span class="timeline-date">27 December 2026</span>
+                    <h3>First meet-up</h3>
+                    <p>Still in the future. Which is exactly why this countdown exists.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-section section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Our little archive</p>
+                    <h2>The numbers behind the memories.</h2>
+                </div>
+                <p class="section-note">
+                    <span id="stat-date-range">Reading your archive…</span><br>
+                    <span id="stat-sources"></span>
+                </p>
+            </div>
+
+            <div class="stats-grid">
+
+                <article class="stat-card reveal">
+                    <span class="stat-symbol">✉</span>
+                    <strong id="stat-messages">—</strong>
+                    <span>Messages exchanged</span>
+                    <small>Every export, added together</small>
+                </article>
+
+                <article class="stat-card reveal reveal-delay">
+                    <span class="stat-symbol">♡</span>
+                    <strong id="stat-love">—</strong>
+                    <span>“I love you” moments</span>
+                    <small>Counted word for word</small>
+                </article>
+
+                <article class="stat-card reveal reveal-delay-2">
+                    <span class="stat-symbol">☺</span>
+                    <strong id="stat-emoji">—</strong>
+                    <span>Most used emoji</span>
+                    <small id="stat-emoji-count">Waiting for the archive</small>
+                </article>
+
+                <article class="stat-card reveal">
+                    <span class="stat-symbol">✦</span>
+                    <strong id="stat-active-days">—</strong>
+                    <span>Days you both showed up</span>
+                    <small id="stat-peak-day">Finding your busiest day</small>
+                </article>
+
+                <article class="stat-card reveal">
+                    <span class="stat-symbol">✧</span>
+                    <strong id="stat-media">—</strong>
+                    <span>Photos and files shared</span>
+                    <small>Attachments across every chat</small>
+                </article>
+
+                <article class="stat-card reveal reveal-delay">
+                    <span class="stat-symbol">☆</span>
+                    <strong id="stat-reactions">—</strong>
+                    <span>Reactions left on each other</span>
+                    <small>The small ways of saying something</small>
+                </article>
+
+                <article class="stat-card reveal reveal-delay-2">
+                    <span class="stat-symbol">☏</span>
+                    <strong id="stat-calls">—</strong>
+                    <span>Calls answered</span>
+                    <small>Hours that never got typed out</small>
+                </article>
+
+                <article class="stat-card reveal">
+                    <span class="stat-symbol">◷</span>
+                    <strong id="stat-archive-days">—</strong>
+                    <span>Days since the first message</span>
+                    <small>And counting, quietly</small>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ON THIS DAY ================= -->
+
+        <section class="today-section section-pad">
+
+            <div class="today-card reveal">
+                <div class="today-icon">☼</div>
+                <div class="today-copy">
+                    <p class="eyebrow">On this day</p>
+                    <h2 id="on-this-day-title">A memory is waiting here.</h2>
+                    <p id="on-this-day-text">
+                        This looks through the archive for the days
+                        you were both here, this same date, in a
+                        year gone by.
+                    </p>
+                </div>
+                <a href="conversations.html" class="button button-light">
+                    Open conversations
+                    <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- ================= QURAN ================= -->
+
+        <section class="quran-preview section-pad">
+
+            <div class="quran-card reveal">
+
+                <div class="quran-copy">
+                    <p class="eyebrow">A journey worth sharing</p>
+                    <h2>Our Quran journey.</h2>
+                    <p>
+                        A calm little space to keep track
+                        of recitation, pages, juz, streaks,
+                        and the days we make time for something
+                        greater.
+                    </p>
+                    <div class="quran-actions">
+                        <a href="quran.html" class="button button-primary">
+                            Open Quran tracker
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="quran-progress">
+                    <div class="progress-heading">
+                        <span>Toward this khatm</span>
+                        <strong id="home-quran-percent">0%</strong>
+                    </div>
+                    <div class="progress-track">
+                        <span id="home-quran-bar" style="width:0%"></span>
+                    </div>
+                    <div class="quran-meta">
+                        <div>
+                            <strong id="home-quran-pages">0</strong>
+                            <span>Pages read</span>
+                        </div>
+                        <div>
+                            <strong id="home-quran-juz">0</strong>
+                            <span>Juz completed</span>
+                        </div>
+                        <div>
+                            <strong id="home-quran-streak">0</strong>
+                            <span>Day streak</span>
+                        </div>
+                    </div>
+                    <p class="muted-text" id="home-quran-note" style="margin-top:14px;">
+                        Nothing logged yet. Open the tracker and tick today.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOVE LETTER ================= -->
+
+        <section class="letter-section section-pad">
+
+            <div class="letter-card reveal">
+                <div class="letter-seal">I</div>
+                <div class="letter-content">
+                    <p class="eyebrow">A little letter</p>
+                    <h2>For My Lovely</h2>
+                    <p class="letter-text">
+                        Ilham, I don't know exactly where
+                        every road ahead of us will lead,
+                        but I know I am grateful that one
+                        of mine led to you.
+
+                        From that first message to the
+                        conversations that kept growing,
+                        you've become one of the most
+                        beautiful parts of my life.
+
+                        I pray Allah keeps what is good
+                        between us, puts barakah in our
+                        future, and lets us look back one
+                        day at this little website and
+                        smile at how far we've come.
+                    </p>
+                    <p class="letter-signoff">
+                        I love you.
+                        Always your My Lovely. ♡
+                    </p>
+                    <a href="letters.html" class="text-link">Read the letters →</a>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= SURPRISE ================= -->
+
+        <section class="surprise-section section-pad">
+
+            <div class="surprise-card reveal">
+                <div>
+                    <p class="eyebrow">For the random moments</p>
+                    <h2>Surprise me.</h2>
+                    <p>
+                        One click. One moment,
+                        pulled at random from
+                        everything you have said to
+                        each other.
+                    </p>
+                </div>
+                <button class="button button-primary" id="surprise-button" type="button">
+                    Give me a memory
+                    <span aria-hidden="true">✦</span>
+                </button>
+            </div>
+
+            <div class="surprise-result" id="surprise-result" hidden>
+                <span id="surprise-result-label">From our archive</span>
+                <p id="surprise-result-text"></p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+    <script src="chat-data.js"></script>
+    <script src="quran.js"></script>
+    <script src="home.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Watchlists — My Lovely</title>
+
+    <meta name="description" content="Both watchlists, side by side, and what you actually agree on.">
+
+    <link rel="stylesheet" href="decor.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="page-hero section-pad">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Movie &amp; anime dates</p>
+                    <h1>What are we watching?</h1>
+                    <p class="page-lede">
+                        Add what you want to watch. Anything that ends up on both
+                        lists moves to the top of the page, and when neither of
+                        you can decide, there is a button for that.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <span class="badge" id="watch-count">0 titles</span>
+                    <div class="page-actions">
+                        <button class="button button-primary button-small" type="button" id="watch-pick">
+                            Pick for us
+                            <span aria-hidden="true">✦</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PICKED ================= -->
+
+        <section class="section-pad" style="padding-top:0;">
+
+            <div class="pick-result" id="watch-pick-result" hidden>
+                <small>Tonight, then</small>
+                <strong id="watch-pick-title"></strong>
+                <span id="watch-pick-note"></span>
+            </div>
+
+        </section>
+
+
+        <!-- ================= SHARED ================= -->
+
+        <section class="section-pad" style="padding-top:10px;">
+
+            <div class="match-card reveal">
+                <p class="eyebrow">On both lists</p>
+                <h2 class="panel-title" style="font-size:1.9rem;">What you already agree on</h2>
+                <p class="muted-text" id="watch-match-note" style="margin:10px 0 0;">
+                    Nothing yet. Add the same title to both lists and it shows up here.
+                </p>
+                <ul class="match-list" id="watch-matches"></ul>
+            </div>
+
+        </section>
+
+
+        <!-- ================= ADD ================= -->
+
+        <section class="section-pad">
+
+            <div class="panel reveal">
+
+                <div class="panel-head">
+                    <h2 class="panel-title">Add something</h2>
+                    <p class="panel-note">Saved on this device</p>
+                </div>
+
+                <div class="grid-2">
+
+                    <div class="field">
+                        <label for="watch-title">Title</label>
+                        <input type="text" id="watch-title" class="input" placeholder="Vinland Saga" autocomplete="off">
+                    </div>
+
+                    <div class="field">
+                        <label for="watch-owner">Whose list</label>
+                        <select id="watch-owner" class="select">
+                            <option value="khalil">Khalil</option>
+                            <option value="ilham">Ilham</option>
+                            <option value="both">Both of us</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="watch-kind">What is it</label>
+                        <select id="watch-kind" class="select">
+                            <option value="anime">Anime</option>
+                            <option value="movie">Movie</option>
+                            <option value="series">Series</option>
+                            <option value="documentary">Documentary</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="watch-status">Where you are with it</label>
+                        <select id="watch-status" class="select">
+                            <option value="want">Want to watch</option>
+                            <option value="watching">Watching now</option>
+                            <option value="watched">Watched</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="cluster" style="margin-top:16px;">
+                    <button class="button button-primary button-small" type="button" id="watch-add">
+                        Add to the list
+                    </button>
+                    <button class="button button-ghost button-small" type="button" id="watch-export">
+                        Download backup
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= THE LISTS ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Side by side</p>
+                    <h2>The lists.</h2>
+                </div>
+                <select class="select" id="watch-filter" style="max-width:210px;" aria-label="Filter by status">
+                    <option value="all">Everything</option>
+                    <option value="want">Want to watch</option>
+                    <option value="watching">Watching now</option>
+                    <option value="watched">Watched</option>
+                </select>
+            </div>
+
+            <div class="watch-columns">
+
+                <div class="panel reveal">
+                    <div class="panel-head">
+                        <h2 class="panel-title">Khalil's list</h2>
+                        <p class="panel-note" id="watch-khalil-count"></p>
+                    </div>
+                    <ul class="watch-list" id="watch-khalil"></ul>
+                    <div class="empty-state" id="watch-khalil-empty" hidden>
+                        <strong>Empty for now</strong>
+                        <p>Add the first title above.</p>
+                    </div>
+                </div>
+
+                <div class="panel reveal reveal-delay">
+                    <div class="panel-head">
+                        <h2 class="panel-title">Ilham's list</h2>
+                        <p class="panel-note" id="watch-ilham-count"></p>
+                    </div>
+                    <ul class="watch-list" id="watch-ilham"></ul>
+                    <div class="empty-state" id="watch-ilham-empty" hidden>
+                        <strong>Empty for now</strong>
+                        <p>Add the first title above.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+
+    <script>
+    (function () {
+
+        "use strict";
+
+        var KEY = "ml.watchlist.v1";
+
+        /*
+            The four titles that were already on the old page.
+            They are seeded once, the first time this page runs,
+            so nothing that was written down gets lost.
+        */
+
+        var SEED = [
+            { title: "Vinland Saga", owner: "khalil", kind: "anime", status: "want" },
+            { title: "One Piece", owner: "khalil", kind: "anime", status: "want" },
+            { title: "Demon Slayer", owner: "khalil", kind: "anime", status: "want" },
+            { title: "Dororo", owner: "khalil", kind: "anime", status: "want" }
+        ];
+
+        var STATUS_LABELS = {
+            want: "Want to watch",
+            watching: "Watching now",
+            watched: "Watched"
+        };
+
+        var KIND_LABELS = {
+            anime: "Anime",
+            movie: "Movie",
+            series: "Series",
+            documentary: "Documentary"
+        };
+
+        var items = window.ML.store.get(KEY, null);
+
+        if (!Array.isArray(items)) {
+
+            items = SEED.map(function (entry, index) {
+
+                return {
+                    id: "seed-" + index,
+                    title: entry.title,
+                    owner: entry.owner,
+                    kind: entry.kind,
+                    status: entry.status,
+                    addedAt: Date.now()
+                };
+
+            });
+
+            window.ML.store.set(KEY, items);
+
+        }
+
+        var filter = "all";
+
+
+        function save() {
+
+            window.ML.store.set(KEY, items);
+
+        }
+
+
+        function element(tag, className, text) {
+
+            var node = document.createElement(tag);
+
+            if (className) {
+                node.className = className;
+            }
+
+            if (text !== undefined && text !== null) {
+                node.textContent = text;
+            }
+
+            return node;
+
+        }
+
+
+        function normalise(title) {
+
+            return title.trim().toLowerCase().replace(/[^a-z0-9]+/g, "");
+
+        }
+
+
+        function listFor(owner) {
+
+            return items.filter(function (item) {
+
+                return item.owner === owner || item.owner === "both";
+
+            });
+
+        }
+
+
+        function buildItem(item) {
+
+            var li = element("li", "watch-item");
+
+            if (item.status === "watched") {
+
+                li.classList.add("is-watched");
+
+            }
+
+            var copy = element("div", "watch-copy");
+
+            copy.appendChild(element("strong", null, item.title));
+
+            var meta = [KIND_LABELS[item.kind] || item.kind];
+
+            if (item.owner === "both") {
+
+                meta.push("both of you");
+
+            }
+
+            copy.appendChild(element("small", null, meta.join(" · ")));
+
+            li.appendChild(copy);
+
+            var tag = element("span", "status-tag", STATUS_LABELS[item.status] || item.status);
+
+            tag.setAttribute("data-status", item.status);
+
+            li.appendChild(tag);
+
+
+            var cycle = element("button", "icon-button", "↻");
+
+            cycle.type = "button";
+            cycle.title = "Move it on a stage";
+            cycle.setAttribute("aria-label", "Change the status of " + item.title);
+
+            cycle.addEventListener("click", function () {
+
+                var order = ["want", "watching", "watched"];
+
+                var next = order[(order.indexOf(item.status) + 1) % order.length];
+
+                item.status = next;
+
+                save();
+
+                render();
+
+                window.ML.toast(item.title + " — " + STATUS_LABELS[next].toLowerCase());
+
+            });
+
+            li.appendChild(cycle);
+
+
+            var remove = element("button", "icon-button", "✕");
+
+            remove.type = "button";
+            remove.title = "Remove";
+            remove.setAttribute("aria-label", "Remove " + item.title);
+
+            remove.addEventListener("click", function () {
+
+                items = items.filter(function (candidate) {
+
+                    return candidate.id !== item.id;
+
+                });
+
+                save();
+
+                render();
+
+                window.ML.toast("Removed " + item.title);
+
+            });
+
+            li.appendChild(remove);
+
+            return li;
+
+        }
+
+
+        function renderColumn(owner) {
+
+            var list = document.getElementById("watch-" + owner);
+            var empty = document.getElementById("watch-" + owner + "-empty");
+            var count = document.getElementById("watch-" + owner + "-count");
+
+            if (!list) {
+                return;
+            }
+
+            list.textContent = "";
+
+            var mine = listFor(owner);
+
+            var visible = mine.filter(function (item) {
+
+                return filter === "all" || item.status === filter;
+
+            });
+
+            visible.sort(function (a, b) {
+
+                return a.title.localeCompare(b.title);
+
+            });
+
+            visible.forEach(function (item) {
+
+                list.appendChild(buildItem(item));
+
+            });
+
+            if (empty) {
+
+                empty.hidden = visible.length > 0;
+
+            }
+
+            if (count) {
+
+                var watched = mine.filter(function (item) {
+
+                    return item.status === "watched";
+
+                }).length;
+
+                count.textContent = mine.length
+                    ? mine.length + " " + window.ML.plural(mine.length, "title") + " · " + watched + " watched"
+                    : "Nothing yet";
+
+            }
+
+        }
+
+
+        function renderMatches() {
+
+            var list = document.getElementById("watch-matches");
+            var note = document.getElementById("watch-match-note");
+
+            if (!list) {
+                return;
+            }
+
+            list.textContent = "";
+
+            var khalilTitles = {};
+
+            items.forEach(function (item) {
+
+                if (item.owner === "khalil") {
+
+                    khalilTitles[normalise(item.title)] = item.title;
+
+                }
+
+            });
+
+            var matched = [];
+            var seen = {};
+
+            items.forEach(function (item) {
+
+                var key = normalise(item.title);
+
+                if (seen[key]) {
+                    return;
+                }
+
+                if (item.owner === "both" || (item.owner === "ilham" && khalilTitles[key])) {
+
+                    seen[key] = true;
+
+                    matched.push(item.title);
+
+                }
+
+            });
+
+            matched.forEach(function (title) {
+
+                list.appendChild(element("li", null, title));
+
+            });
+
+            if (note) {
+
+                note.textContent = matched.length
+                    ? matched.length + " " + window.ML.plural(matched.length, "title") + " you have both put down."
+                    : "Nothing yet. Add the same title to both lists and it shows up here.";
+
+            }
+
+        }
+
+
+        function render() {
+
+            renderColumn("khalil");
+            renderColumn("ilham");
+            renderMatches();
+
+            window.ML.setText(
+                "watch-count",
+                items.length + " " + window.ML.plural(items.length, "title")
+            );
+
+        }
+
+
+        /* ---------- adding ---------- */
+
+        function addItem() {
+
+            var titleInput = document.getElementById("watch-title");
+
+            var title = titleInput.value.trim();
+
+            if (!title) {
+
+                window.ML.toast("Give it a title first");
+
+                titleInput.focus();
+
+                return;
+
+            }
+
+            var owner = document.getElementById("watch-owner").value;
+
+            var duplicate = items.some(function (item) {
+
+                return normalise(item.title) === normalise(title)
+                    && item.owner === owner;
+
+            });
+
+            if (duplicate) {
+
+                window.ML.toast("That is already on this list");
+
+                return;
+
+            }
+
+            items.push({
+                id: "w" + Date.now() + Math.floor(Math.random() * 1000),
+                title: title,
+                owner: owner,
+                kind: document.getElementById("watch-kind").value,
+                status: document.getElementById("watch-status").value,
+                addedAt: Date.now()
+            });
+
+            save();
+
+            titleInput.value = "";
+            titleInput.focus();
+
+            render();
+
+            window.ML.toast("Added " + title);
+
+        }
+
+
+        document.getElementById("watch-add").addEventListener("click", addItem);
+
+        document.getElementById("watch-title").addEventListener("keydown", function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                addItem();
+
+            }
+
+        });
+
+
+        document.getElementById("watch-filter").addEventListener("change", function (event) {
+
+            filter = event.target.value;
+
+            render();
+
+        });
+
+
+        /* ---------- pick for us ---------- */
+
+        document.getElementById("watch-pick").addEventListener("click", function () {
+
+            var pool = items.filter(function (item) {
+
+                return item.status !== "watched";
+
+            });
+
+            var result = document.getElementById("watch-pick-result");
+
+            if (!pool.length) {
+
+                window.ML.toast("Nothing left to pick from");
+
+                return;
+
+            }
+
+            /* Anything on both lists gets a better chance. */
+
+            var weighted = [];
+
+            pool.forEach(function (item) {
+
+                weighted.push(item);
+
+                if (item.owner === "both") {
+
+                    weighted.push(item);
+                    weighted.push(item);
+
+                }
+
+            });
+
+            var pick = weighted[Math.floor(Math.random() * weighted.length)];
+
+            window.ML.setText("watch-pick-title", pick.title);
+
+            window.ML.setText(
+                "watch-pick-note",
+                (KIND_LABELS[pick.kind] || pick.kind)
+                    + " · "
+                    + (pick.owner === "both"
+                        ? "on both your lists"
+                        : "from " + window.ML.personName(pick.owner) + "'s list")
+            );
+
+            result.hidden = false;
+
+        });
+
+
+        /* ---------- backup ---------- */
+
+        document.getElementById("watch-export").addEventListener("click", function () {
+
+            var payload = JSON.stringify(
+                { exportedAt: new Date().toISOString(), items: items },
+                null,
+                2
+            );
+
+            var blob = new Blob([payload], { type: "application/json" });
+
+            var url = URL.createObjectURL(blob);
+
+            var link = document.createElement("a");
+
+            link.href = url;
+            link.download = "watchlist-" + window.ML.todayKey() + ".json";
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+
+            URL.revokeObjectURL(url);
+
+            window.ML.toast("Backup downloaded");
+
+        });
+
+
+        render();
+
+    }());
+    </script>
+
+</body>
+</html>

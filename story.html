@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Story — My Lovely</title>
+
+    <meta name="description" content="The story of Khalil and Ilham — our journey, our dreams, and our future together.">
+
+    <link rel="stylesheet" href="decor.css">
+    <link rel="stylesheet" href="story.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main id="story-page">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="page-hero section-pad">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Our journey</p>
+                    <h1>The story of us.</h1>
+                    <p class="page-lede">
+                        Where we came from, who we are now, and the future 
+                        we're building together. A love story grounded in 
+                        faith, ambition, and the belief that the best is yet 
+                        to come.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <div class="page-actions">
+                        <a href="dashboard.html" class="button button-ghost button-small">
+                            Back to dashboard
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW WE MET ================= -->
+
+        <section class="section-pad" style="padding-top:0;">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">The beginning</p>
+                    <h2>How we met.</h2>
+                </div>
+            </div>
+
+            <div class="panel story-intro reveal">
+                <div class="panel-head">
+                    <h2 class="panel-title" id="how-we-met-date">September 2025</h2>
+                    <p class="panel-note" id="how-we-met-platform">Discord</p>
+                </div>
+                <p id="how-we-met-story" class="story-intro-copy">
+                    Loading our story...
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= RELATIONSHIP MILESTONES ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Our journey together</p>
+                    <h2>Milestones.</h2>
+                </div>
+                <p class="section-note">The moments that brought us here.</p>
+            </div>
+
+            <div class="moment-list" id="milestones-list">
+                <!-- Populated by JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHO WE ARE ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Meet us</p>
+                    <h2>Who we are.</h2>
+                </div>
+                <p class="section-note">Our stories, our passions, our purpose.</p>
+            </div>
+
+            <div class="grid-2">
+
+                <!-- KHALIL'S PROFILE -->
+                <div class="panel story-profile reveal">
+                    
+                    <div class="story-profile-head">
+                        <img src="khalilpfp.jpg" alt="Khalil" class="story-profile-photo">
+                        <div>
+                            <h2 class="panel-title" id="khalil-name">Khalil Yousfi</h2>
+                            <p class="panel-note" id="khalil-tagline">The man behind the website.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 6px;"><strong>Born:</strong> <span id="khalil-birth">2003</span> · <strong>Heritage:</strong> <span id="khalil-heritage">Moroccan</span></p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Work & Ambition</strong></p>
+                        <p class="muted-text" id="khalil-work-current" style="margin-bottom: 4px;">Currently working as an electrician</p>
+                        <p class="muted-text" id="khalil-work-ambition">Building his own domestic electrical business</p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Skills</strong></p>
+                        <ul class="fact-list" id="khalil-skills">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Things he enjoys</strong></p>
+                        <p class="muted-text" id="khalil-interests">Anime · Travelling · Football · Gaming · Food · Camping</p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Faith & aspirations</strong></p>
+                        <ul class="fact-list" id="khalil-faith">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Currently working on</strong></p>
+                        <p class="muted-text" id="khalil-current">This website · Personal AI · Fitness</p>
+                    </div>
+
+                    <div>
+                        <p style="margin-bottom: 8px;"><strong>Long-term vision</strong></p>
+                        <ul class="fact-list" id="khalil-vision">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- ILHAM'S PROFILE -->
+                <div class="panel story-profile reveal reveal-delay">
+                    
+                    <div class="story-profile-head">
+                        <img src="ilhampfp.jpg" alt="Ilham" class="story-profile-photo">
+                        <div>
+                            <h2 class="panel-title" id="ilham-name">Ilham Chaouki</h2>
+                            <p class="panel-note" id="ilham-tagline">The inspiration behind everything.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 6px;"><strong>Born:</strong> <span id="ilham-birth">1999</span> · <strong>Heritage:</strong> <span id="ilham-heritage">Moroccan</span></p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Work & Ambition</strong></p>
+                        <p class="muted-text" id="ilham-work-current" style="margin-bottom: 4px;">Working full-time while supporting her family</p>
+                        <p class="muted-text" id="ilham-work-ambition">Pursuing a Master's degree in Business</p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Skills</strong></p>
+                        <ul class="fact-list" id="ilham-skills">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Things she enjoys</strong></p>
+                        <p class="muted-text" id="ilham-interests">Drawing · K-dramas · Swimming · Gym · Learning new things</p>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>What she's proud of</strong></p>
+                        <ul class="fact-list" id="ilham-proud">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <p style="margin-bottom: 8px;"><strong>Currently working on</strong></p>
+                        <ul class="fact-list" id="ilham-current">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p style="margin-bottom: 8px;"><strong>Long-term vision</strong></p>
+                        <ul class="fact-list" id="ilham-vision">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHAT MAKES US SPECIAL ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">What makes us, us</p>
+                    <h2>Why we work.</h2>
+                </div>
+            </div>
+
+            <div class="panel reveal">
+                <ul class="fact-list" id="what-makes-us-special" style="font-size: 1.05rem;">
+                    <!-- Populated by JavaScript -->
+                </ul>
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHAT WE LOVE ABOUT EACH OTHER ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Appreciation</p>
+                    <h2>What we love about each other.</h2>
+                </div>
+            </div>
+
+            <div class="grid-2">
+
+                <div class="panel reveal">
+                    <div class="panel-head">
+                        <h2 class="panel-title">What Ilham loves about Khalil</h2>
+                    </div>
+                    <ul class="fact-list" id="love-about-khalil">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+
+                <div class="panel reveal reveal-delay">
+                    <div class="panel-head">
+                        <h2 class="panel-title">What Khalil loves about Ilham</h2>
+                    </div>
+                    <ul class="fact-list" id="love-about-ilham">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OUR FUTURE - IMMEDIATE ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Looking ahead</p>
+                    <h2>Our future together.</h2>
+                </div>
+                <p class="section-note">The dreams we're chasing, the life we're building.</p>
+            </div>
+
+            <div class="panel reveal">
+                <div class="panel-head">
+                    <h2 class="panel-title">Right Now</h2>
+                    <p class="panel-note">What we're actively working towards</p>
+                </div>
+                <div class="grid-2 story-goal-grid" id="future-immediate">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= OUR FUTURE - MEDIUM TERM ================= -->
+
+        <section class="section-pad">
+
+            <div class="panel reveal">
+                <div class="panel-head">
+                    <h2 class="panel-title">In The Coming Years</h2>
+                    <p class="panel-note">Building our life together</p>
+                </div>
+                <div class="grid-2 story-goal-grid" id="future-medium">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= OUR FUTURE - LIFELONG ================= -->
+
+        <section class="section-pad">
+
+            <div class="panel reveal">
+                <div class="panel-head">
+                    <h2 class="panel-title">For The Rest Of Our Lives</h2>
+                    <p class="panel-note">The ultimate aspirations</p>
+                </div>
+                <div class="grid-2 story-goal-grid" id="future-lifelong">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= DREAMS ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">The life we're building</p>
+                    <h2>Our dreams.</h2>
+                </div>
+            </div>
+
+            <div class="panel reveal">
+                <ul class="fact-list" id="dreams-list" style="font-size: 1.05rem;">
+                    <!-- Populated by JavaScript -->
+                </ul>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+    <script src="story-data.js"></script>
+    <script>
+        
+        /*
+        =========================================================
+        OUR STORY PAGE SCRIPT
+        
+        Loads data from story-data.js and populates the page.
+        Keep this simple - all the content lives in the data
+        file, this just puts it where it needs to go.
+        =========================================================
+        */
+
+        (function () {
+
+            "use strict";
+
+            if (!window.STORY_DATA) {
+                console.error("story-data.js must load before this script.");
+                return;
+            }
+
+            var data = window.STORY_DATA;
+
+
+            /* =====================================================
+               POPULATE HOW WE MET
+            ===================================================== */
+
+            function populateHowWeMet() {
+                
+                var story = data.ourStory.howWeMet;
+
+                ML.setText("how-we-met-date", story.date);
+                ML.setText("how-we-met-platform", story.platform);
+                ML.setText("how-we-met-story", story.story);
+
+            }
+
+
+            /* =====================================================
+               POPULATE MILESTONES
+            ===================================================== */
+
+            function populateMilestones() {
+
+                var container = document.getElementById("milestones-list");
+
+                if (!container) {
+                    return;
+                }
+
+                var milestones = data.ourStory.milestones;
+
+                container.replaceChildren();
+
+                milestones.forEach(function (milestone) {
+
+                    var article = document.createElement("article");
+                    article.className = "moment reveal";
+
+                    var iconSpan = document.createElement("span");
+                    iconSpan.className = "moment-icon";
+                    iconSpan.textContent = milestone.icon;
+
+                    var contentDiv = document.createElement("div");
+                    contentDiv.className = "moment-content";
+
+                    var title = document.createElement("strong");
+                    title.textContent = milestone.title;
+
+                    var date = document.createElement("span");
+                    date.className = "moment-date";
+                    date.textContent = milestone.date;
+
+                    var description = document.createElement("p");
+                    description.textContent = milestone.description;
+
+                    contentDiv.appendChild(title);
+                    contentDiv.appendChild(date);
+                    contentDiv.appendChild(description);
+
+                    article.appendChild(iconSpan);
+                    article.appendChild(contentDiv);
+
+                    container.appendChild(article);
+
+                });
+
+            }
+
+
+            /* =====================================================
+               POPULATE KHALIL'S PROFILE
+            ===================================================== */
+
+            function populateKhalil() {
+
+                var khalil = data.khalil;
+
+                ML.setText("khalil-name", khalil.name);
+                ML.setText("khalil-tagline", khalil.tagline);
+                ML.setText("khalil-birth", khalil.yearOfBirth);
+                ML.setText("khalil-heritage", khalil.heritage);
+                ML.setText("khalil-work-current", "Currently working as " + khalil.work.current);
+                ML.setText("khalil-work-ambition", khalil.work.ambition);
+                ML.setText("khalil-interests", khalil.interests.join(" · "));
+                ML.setText("khalil-current", khalil.currentlyWorkingOn.join(" · "));
+
+                populateList("khalil-skills", khalil.skills);
+                populateList("khalil-faith", khalil.faith.goals);
+                populateList("khalil-vision", khalil.longTermVision);
+
+            }
+
+
+            /* =====================================================
+               POPULATE ILHAM'S PROFILE
+            ===================================================== */
+
+            function populateIlham() {
+
+                var ilham = data.ilham;
+
+                ML.setText("ilham-name", ilham.name);
+                ML.setText("ilham-tagline", ilham.tagline);
+                ML.setText("ilham-birth", ilham.yearOfBirth);
+                ML.setText("ilham-heritage", ilham.heritage);
+                ML.setText("ilham-work-current", ilham.work.current);
+                ML.setText("ilham-work-ambition", ilham.work.ambition);
+                ML.setText("ilham-interests", ilham.interests.join(" · "));
+
+                populateList("ilham-skills", ilham.skills);
+                populateList("ilham-proud", ilham.proudOf);
+                populateList("ilham-current", ilham.currentlyWorkingOn);
+                populateList("ilham-vision", ilham.longTermVision);
+
+            }
+
+
+            /* =====================================================
+               POPULATE WHAT MAKES US SPECIAL
+            ===================================================== */
+
+            function populateWhatMakesUsSpecial() {
+
+                populateList("what-makes-us-special", data.ourStory.whatMakesUsSpecial);
+
+            }
+
+
+            /* =====================================================
+               POPULATE WHAT WE LOVE ABOUT EACH OTHER
+            ===================================================== */
+
+            function populateWhatWeLove() {
+
+                populateList("love-about-khalil", data.whatWeLove.aboutKhalil);
+                populateList("love-about-ilham", data.whatWeLove.aboutIlham);
+
+            }
+
+
+            /* =====================================================
+               POPULATE FUTURE GOALS
+            ===================================================== */
+
+            function populateFuture() {
+
+                populateFutureGoals("future-immediate", data.ourFuture.immediate);
+                populateFutureGoals("future-medium", data.ourFuture.medium);
+                populateFutureGoals("future-lifelong", data.ourFuture.lifelong);
+
+            }
+
+
+            function populateFutureGoals(containerId, goals) {
+
+                var container = document.getElementById(containerId);
+
+                if (!container) {
+                    return;
+                }
+
+                container.replaceChildren();
+
+                goals.forEach(function (goal) {
+
+                    var div = document.createElement("article");
+                    div.className = "story-goal";
+
+                    var icon = document.createElement("span");
+                    icon.className = "story-goal-index";
+                    icon.textContent = goal.icon;
+
+                    var title = document.createElement("h3");
+                    title.className = "story-goal-title";
+                    title.textContent = goal.goal;
+
+                    var description = document.createElement("p");
+                    description.className = "muted-text story-goal-copy";
+                    description.textContent = goal.description;
+
+                    div.appendChild(icon);
+                    div.appendChild(title);
+                    div.appendChild(description);
+
+                    container.appendChild(div);
+
+                });
+
+            }
+
+
+            /* =====================================================
+               POPULATE DREAMS
+            ===================================================== */
+
+            function populateDreams() {
+
+                populateList("dreams-list", data.ourFuture.dreams);
+
+            }
+
+
+            /* =====================================================
+               HELPER: POPULATE A LIST
+            ===================================================== */
+
+            function populateList(id, items) {
+
+                var list = document.getElementById(id);
+
+                if (!list) {
+                    return;
+                }
+
+                list.replaceChildren();
+
+                items.forEach(function (item) {
+
+                    var li = document.createElement("li");
+                    li.textContent = item;
+                    list.appendChild(li);
+
+                });
+
+            }
+
+
+            /* =====================================================
+               START
+            ===================================================== */
+
+            ML.ready(function () {
+
+                populateHowWeMet();
+                populateMilestones();
+                populateKhalil();
+                populateIlham();
+                populateWhatMakesUsSpecial();
+                populateWhatWeLove();
+                populateFuture();
+                populateDreams();
+
+                // Reveal any dynamically added content
+                ML.revealNow();
+
+            });
+
+        }());
+
+    </script>
+
+</body>
+</html>

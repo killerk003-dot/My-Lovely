@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quran — My Lovely</title>
+
+    <meta name="description" content="One page a day, together.">
+
+    <link rel="stylesheet" href="decor.css">
+    <link rel="stylesheet" href="quran-style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        /* Failsafe: if a script fails, the page still shows its content. */
+        document.documentElement.className += " js";
+        window.setTimeout(function () {
+            if (!window.ML) {
+                document.documentElement.className += " reveal-failsafe";
+            }
+        }, 2000);
+    </script>
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">&#9660;</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">&#127871; Watchlists</a>
+                    <a href="dates.html">&#129505; Date ideas</a>
+                    <a href="secret.html">&#129323; Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">&#128248; Memories <em>Soon</em></a>
+                    <a href="letters.html">&#128140; Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">&#128197; Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">&#10024; Bucket list <em>Soon</em></a>
+                    <a href="places.html">&#127758; Places we've been <em>Soon</em></a>
+                    <a href="pics.html">&#128444; Pics <em>Soon</em></a>
+                    <a href="music.html">&#127925; Our music <em>Soon</em></a>
+                    <a href="surprise.html">&#127873; Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main id="quran-page">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="page-hero section-pad">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Our Quran journey</p>
+                    <h1>One page a day.</h1>
+                    <p class="page-lede">
+                        604 pages, one each day, all the way to a complete
+                        khatm. Pick your name's dropdown when you've read
+                        today's page.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <div class="page-actions">
+                        <button class="button button-ghost button-small" type="button" id="quran-jump-today">
+                            Jump to today
+                        </button>
+                        <button class="button button-ghost button-small" type="button" id="quran-export">
+                            Export sheet
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="section-pad" style="padding-top:0;" id="quran-storage-warning" hidden>
+            <div class="load-state">
+                This browser is blocking local storage, so nothing marked here
+                will be remembered. Turn off private browsing to keep your progress.
+            </div>
+        </div>
+
+
+        <!-- ================= TODAY ================= -->
+
+        <section class="section-pad" style="padding-top:14px;">
+
+            <div class="reveal" id="quran-today-card"></div>
+
+        </section>
+
+
+        <!-- ================= PROGRESS ================= -->
+
+        <section class="section-pad" style="padding-top:10px;">
+
+            <div class="panel reveal">
+
+                <div class="panel-head">
+                    <h2 class="panel-title">Where you are</h2>
+                    <p class="panel-note" id="quran-finish-note"></p>
+                </div>
+
+                <div class="progress-heading">
+                    <span>Completed by both of you</span>
+                    <strong id="quran-progress-percent">0%</strong>
+                </div>
+
+                <div class="progress-track">
+                    <span id="quran-progress-bar" style="width:0%"></span>
+                </div>
+
+                <p class="muted-text" id="quran-progress-note" style="margin-top:12px;"></p>
+
+                <div class="progress-strip">
+
+                    <article class="metric">
+                        <strong id="quran-both-pages">0</strong>
+                        <span>Pages together</span>
+                        <small>Days you both completed</small>
+                    </article>
+
+                    <article class="metric">
+                        <strong id="quran-streak">0</strong>
+                        <span>Shared streak</span>
+                        <small>Days in a row, both of you</small>
+                    </article>
+
+                    <article class="metric">
+                        <strong id="quran-khalil-pages">0</strong>
+                        <span>Khalil</span>
+                        <small>Pages completed</small>
+                    </article>
+
+                    <article class="metric">
+                        <strong id="quran-ilham-pages">0</strong>
+                        <span>Ilham</span>
+                        <small>Pages completed</small>
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= THE PLAN ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">The plan</p>
+                    <h2>Every page, every day.</h2>
+                </div>
+                <select class="select" id="quran-filter" style="max-width:220px;" aria-label="Filter the plan">
+                    <option value="all">Around today</option>
+                    <option value="done">Completed by both</option>
+                    <option value="missed">Missed days</option>
+                    <option value="upcoming">Still to come</option>
+                </select>
+            </div>
+
+            <div class="panel reveal">
+
+                <div class="plan-scroll">
+
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Page</th>
+                                <th scope="col">Surah</th>
+                                <th scope="col">Khalil</th>
+                                <th scope="col">Ilham</th>
+                                <th scope="col">Reflection / notes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quran-plan-body"></tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham &middot; My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            &copy; <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+    <script src="quran.js"></script>
+
+</body>
+</html>
