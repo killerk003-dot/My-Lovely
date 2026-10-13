@@ -3,6 +3,37 @@
 
 ---
 
+## 🤖 For AI Coding Assistants: Read This First
+
+*(Added 06/10/2026. Keep this section at the top. It exists to stop assistants wasting context or breaking things.)*
+
+### Scope and location
+- Work **only inside the `My lovely` project folder**. It sits inside `C:\Users\Khalil\Desktop\My Websites`, which also contains **other, unrelated websites** (some are compiled web apps with huge minified files). Never list, search or read the parent folder or sibling folders.
+- This is a **plain static site**: HTML + CSS + vanilla JavaScript + one Python tool. There is **no `package.json`, bundler, Tailwind or build step**. Do not look for any.
+
+### Searching and reading rules (a past session overflowed its context window)
+- Never run recursive searches over the whole tree. Search only the named files.
+- When searching, print **filenames and line numbers only**. Never print whole matching lines (minified files are a single enormous line).
+- Ignore: `.git/`, `backups/`, `node_modules/`, `.next/`, `out/`, `dist/`, `build/`, `tools/audit-output.txt` (unless named), and any `.js` or `.css` file over 200 KB.
+- **Do not open or print** these private or huge files unless explicitly asked: `Chat.json`, `Chat2.0.json`, `Chat3.0.json`, `whatsapp-export.txt`, `config.yaml`, any `.env`.
+- Never paste API keys into chat, files or commits.
+
+### Editing rules
+- Before any edit, confirm a restore point exists (a Git commit or a `backup.ps1` snapshot).
+- After every edit, **re-read the file's first lines to confirm the right content was written** (`shared.js` and `dates.html` have both been overwritten with the wrong content before).
+- JavaScript style is **ES5** (no arrow functions, `const`/`let` or template literals). Keep it that way.
+- localStorage keys are prefixed `ml.` and versioned (`ml.dates.v1`). Never rename them: it would orphan saved data.
+- Page-specific CSS files (`story.css`, `quran-style.css`, `after-hours.css`, `dates.css`) are **out of scope** unless named.
+
+### decor.css contract (do not break)
+Do not rename or remove any existing class, ID, CSS variable or keyframe in `decor.css`. Adding new ones is fine. JavaScript depends on these state hooks:
+`.reveal`, `.is-visible`, `.reveal-delay`, `.reveal-delay-2`, `.page-shell`, `.page-leaving`, `.page-wipe`, `.menu-toggle[aria-expanded]`, `.site-nav.open`, `.dropdown.open`, `.active`, `.chip.is-active`, `.is-done`, `.is-today`, `.is-past-missed`, `.is-starred`, `.is-watched`, `.is-saved`, `.toast.is-visible`, `html.js`, `html.reveal-failsafe`, and the `[hidden] { display: none !important }` rule. Keep the `prefers-reduced-motion` block. `tools/css_audit.py` is the source of truth for which classes are really used.
+
+### Audit tool
+Run `python tools\css_audit.py > tools\audit-output.txt` from the project root, then **read that output file** instead of re-running searches.
+
+---
+
 ## 📊 Project Overview
 
 **Purpose:** A private digital space for Khalil and Ilham to preserve their relationship journey, conversations, memories, and shared goals.
@@ -53,6 +84,10 @@
 - ✅ **Watchlist** (`watchlist.html`)
   - Shared movies/shows to watch together
 
+- ✅ **Date Ideas** (`dates.html`)
+  - Date idea collection with categories, status cycling and a "Pick for us" randomizer
+  - Countdown spotlight to the first meetup
+
 - ✅ **Dashboard** (`dashboard.html`)
   - Grid overview of all sections
 
@@ -79,7 +114,7 @@
   - Reveal animations
   - Navigation controls
 
-#### Design System (100% Complete)
+#### Design System (100% Complete, refinement in progress, see below)
 - ✅ **Visual Design** (`decor.css`)
   - Ambient background effects
   - Custom typography (Cormorant Garamond + DM Sans)
@@ -93,10 +128,11 @@
   - Story page styling (`story.css`)
   - Quran page styling (`quran-style.css`)
   - After-hours theme (`after-hours.css`)
+  - Date Ideas styling (`dates.css`)
 
 #### Media Assets (100% Complete)
 - ✅ Profile photos (khalilpfp.jpg, ilhampfp.jpg)
-- ⚠️ Process documentation video (claude proccess.mp4) — referenced in docs but NOT present in the folder as of 23/09/2026
+- ⚠️ Process documentation video (claude proccess.mp4). Referenced in docs but NOT present in the folder as of 23/09/2026. *(The File Inventory below lists it as present. These two statements conflict, so verify the folder and correct whichever is wrong.)*
 
 ---
 
@@ -111,7 +147,7 @@ The navigation shows several "Soon" features that are placeholders:
 - ✨ **Bucket List** - Shared experiences to achieve together
 
 ### Medium Priority
-- 🧡 **Date Ideas** - Curated list of date plans
+- ~~🧡 **Date Ideas** - Curated list of date plans~~ ✅ **Done** (`dates.html`)
 - 🌍 **Places We've Been** - Interactive map of locations visited
 - 🖼️ **Pics** - General photo collection (differs from Memories)
 - 🎵 **Our Music** - Shared playlist or music preferences
@@ -121,10 +157,35 @@ The navigation shows several "Soon" features that are placeholders:
 
 ---
 
+## 🎨 In Progress: decor.css Modernisation (planned 06/10/2026, NOT yet applied)
+
+**Goal:** Refine `decor.css` into a more modern, consistent design system **without changing the romantic rose/gold/cream mood and without breaking any page**. This is a refinement pass, not a rebuild.
+
+**Scope:** `decor.css` only. The other CSS files, HTML and JS are untouched.
+
+**Planned steps, in priority order:**
+1. Token system: fluid type scale, spacing scale, layered shadow tokens, transition and z-index tokens
+2. Typography: `text-wrap: balance` on headings and `pretty` on paragraphs, raise labels under about .72rem to readable sizes
+3. Consolidate duplicated card styling (`.timeline-card`, `.home-milestone`, `.stat-card`, `.home-stat-card`, `.upcoming-card`, `.explore-card`, `.moment`, `.panel`, `.metric`) while keeping every old class name working
+4. Depth and polish: softer warm-tinted shadows, subtle grain texture, refined hover states
+5. Modern CSS with safe fallbacks: scroll-driven reveals, cross-document view transitions, `:has()`, container queries (all behind `@supports`)
+6. Dark mode via `prefers-color-scheme`, overriding the `:root` variables only
+7. Layout: more breathing room on the homepage, bento-style stats/explore grids that collapse cleanly on mobile
+8. Accessibility: contrast of `--muted` text at 4.5:1 or better, visible focus states, 44px tap targets on mobile
+9. Cleanup: remove the large runs of blank lines, keep section headers, add a table of contents comment
+
+**Rules:** see the "decor.css contract" at the top of this document. Work in small steps, report what changed after each one, and finish with a checklist of pages to check in the browser.
+
+**Before starting:** make a Git commit (or run `backup.ps1`). Page CSS files may override `decor.css` rules, so check the "page CSS re-declares a decor.css selector" section of `tools/audit-output.txt` for likely clashes.
+
+**Status:** ⏳ Not started. Prompt prepared and audit tool created.
+
+---
+
 ## 🔧 Technical Debt & Known Issues
 
 ### Data Consistency
-- **WhatsApp name mapping:** The export shows "27/09 🪨 Alps" as Ilham's WhatsApp name, which needs alias configuration in `shared.js`
+- ~~**WhatsApp name mapping:** The export shows "27/09 🪨 Alps" as Ilham's WhatsApp name, which needs alias configuration in `shared.js`~~ ✅ Aliases have since been added to `shared.js` (see File Inventory). Verify against a real WhatsApp message to be sure.
 - **Multiple data sources:** Three separate JSON files for conversations could be consolidated or indexed for better performance
 - **No data validation:** Chat JSONs lack schema validation
 
@@ -134,14 +195,18 @@ The navigation shows several "Soon" features that are placeholders:
 - No lazy loading for conversations view
 
 ### Code Organization
-- Inline scripts in HTML files (story.html, index.html) should be extracted
+- Inline scripts in HTML files (story.html, index.html, watchlist.html, secret.html) should be extracted
 - Repeated code between pages (navigation, footer)
 - No build process or minification
+- `decor.css` is very large, contains long runs of blank lines and several near-identical card patterns (addressed by the modernisation plan above)
+- `tools/css-audit.ps1` has broken PowerShell quoting and will likely fail to run. Delete it and use `tools/css_audit.py`.
 
 ### Security & Privacy
 - No password protection for private content
 - Secret page is not actually secured
 - Chat data stored in plaintext on client side
+- The Git repository contains **private conversation exports**. Keep it local or in a **private** remote only, never public. Consider adding the chat files to `.gitignore` if the repo is ever pushed anywhere.
+- API keys (for AI coding tools) must never be stored in the project or committed. Use environment variables or an ignored `.env` file.
 
 ### Accessibility
 - Missing ARIA labels on several interactive elements
@@ -159,8 +224,8 @@ The navigation shows several "Soon" features that are placeholders:
 
 ### Content Volume
 - **3 data sources** for conversations (Discord, Instagram, WhatsApp)
-- **13 main pages** (8 complete, 5 planned)
-- **1 conversion tool** (Python — the Node.js version was removed 23/09/2026)
+- **13 main pages** (8 complete, 5 planned). *Note: Date Ideas has since been completed, so 9 HTML files exist today including the template.*
+- **1 conversion tool** (Python. The Node.js version was removed 23/09/2026)
 - **Comprehensive story data** covering relationship journey, personal profiles, and future goals
 
 ### User Experience
@@ -269,14 +334,16 @@ The navigation shows several "Soon" features that are placeholders:
 - Better media handling (show thumbnails for attachments)
 - Voice message indicators with duration
 
-#### 6. Date Ideas Hub (`dates.html`)
-**Implementation:**
+#### 6. Date Ideas Hub (`dates.html`) ✅ **Completed**
+**Implementation (as originally scoped):**
 - Categorized list (virtual dates, future in-person dates, bucket list dates)
 - Budget indicators
 - Location-specific ideas (UK, Morocco, other)
 - Mark as "done" with date and photos
 - Random date picker
 - Seasonal suggestions
+
+*Not yet built from this list: budget indicators, photos on completed dates and seasonal suggestions.*
 
 **Categories:**
 - Virtual dates (watch parties, cooking together, games)
@@ -306,7 +373,7 @@ The navigation shows several "Soon" features that are placeholders:
 - **LocalStorage integration:** Save user preferences
 - **JSON validation:** Schema checking for data files
 - **Backup system:** Export all data to downloadable backup
-- **Version control:** Consider Git for content versioning
+- **Version control:** Consider Git for content versioning *(Git and Git LFS now set up, see Backup & Version Control)*
 
 #### 10. Privacy & Security
 - **Authentication:** Password protect the entire site or specific sections
@@ -342,7 +409,7 @@ The navigation shows several "Soon" features that are placeholders:
 ## 🎨 Design Enhancements to Consider
 
 ### Visual Improvements
-- **Dark mode toggle:** For late-night browsing
+- **Dark mode toggle:** For late-night browsing *(a `prefers-color-scheme` dark theme is included in the decor.css modernisation plan)*
 - **Theme variations:** Different color schemes for seasons or moods
 - **Animations:** More interactive transitions between pages
 - **Loading states:** Better feedback during data-heavy operations
@@ -422,14 +489,14 @@ The navigation shows several "Soon" features that are placeholders:
 
 ### Should-Have (Do Soon)
 5. 🗓️ **Activity Tracker** - Useful for daily engagement
-6. 🧡 **Date Ideas** - Practical for planning
+6. ~~🧡 **Date Ideas** - Practical for planning~~ ✅ Done
 7. 📱 **Mobile Optimization** - Ensure great experience on all devices
 8. ⚡ **Performance Optimization** - Important as data grows
 
 ### Nice-to-Have (Do Later)
 9. 🎵 **Music Collection** - Fun but not critical
 10. 🌍 **Places Map** - Visual but can wait
-11. 🎨 **Dark Mode** - Polish feature
+11. 🎨 **Dark Mode** - Polish feature (planned within the decor.css modernisation)
 12. 📊 **Advanced Analytics** - Interesting but not essential
 
 ---
@@ -437,7 +504,11 @@ The navigation shows several "Soon" features that are placeholders:
 ## 🎯 Next Action Items
 
 ### Immediate (This Week)
-- [ ] Fix WhatsApp name alias in `shared.js`
+- [ ] **Make the first Git commit** (restore point before CSS work). Check `.gitignore` also excludes `backups/*.zip`.
+- [ ] Run `python tools\css_audit.py > tools\audit-output.txt` and review the report
+- [ ] Delete `tools/css-audit.ps1` (broken)
+- [ ] Apply the decor.css modernisation, step by step (see the section above)
+- [x] ~~Fix WhatsApp name alias in `shared.js`~~ (aliases are present, verify with a real message)
 - [ ] Test all existing features for bugs
 - [ ] Create data schema for Memories feature
 - [ ] Sketch wireframes for Letters page
@@ -447,11 +518,12 @@ The navigation shows several "Soon" features that are placeholders:
 - [ ] Implement Letters collection
 - [ ] Set up basic password protection
 - [ ] Optimize conversation loading performance
+- [ ] Build `backup.html` / `backup.js` (localStorage export)
 
 ### Medium-Term (Next Month)
 - [ ] Complete Bucket List feature
 - [ ] Build Activity Tracker
-- [ ] Implement Date Ideas hub
+- [x] ~~Implement Date Ideas hub~~
 - [ ] Set up proper hosting and backups
 
 ---
@@ -472,9 +544,9 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 
 ---
 
-*Document created: 2024*  
+*Document created: 2025 (earlier versions said 2024, which predates the project start)*  
 *Project start date: September 27, 2025*  
-*Last updated: 23 September 2026 (backup & version control added)*  
+*Last updated: 6 October 2026 (AI assistant guardrails, decor.css modernisation plan, audit tooling, Date Ideas marked complete)*  
 *Status: Active development, core features complete, expansion phase recommended*
 
 ---
@@ -770,8 +842,9 @@ Most importantly: **this website is a gift to your future selves.** Every featur
   - Page transitions (fade-out wipe)
   - Footer
   - Responsive breakpoints
-- **Size:** Large (~1200+ lines)
-- **Current Status:** ✅ Comprehensive, stable
+- **File structure (in order):** shared design system (variables, reset, typography, header, buttons, reveal, hero, countdown, timeline, stats, today, quran, letter, surprise, footer, animations, responsive, accessibility), then homepage additions, then "Shared Sub-Page System v2" (nav dropdown, sub-page hero, panels/utilities, form controls, metrics, conversations/moments, checkboxes, watchlist, secret drafts, dashboard cards, responsive), then "Additions v3" (reveal failsafe, Quran plan components), then the `[hidden]` fix
+- **Size:** Very large (~1200+ real lines, plus long runs of blank lines to be cleaned up)
+- **Current Status:** ✅ Comprehensive, stable. Modernisation pass planned (see "In Progress" section)
 
 #### **story.css** - Story Page Styles
 - **Purpose:** story.html specific styling
@@ -820,7 +893,7 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 - **Purpose:** Discord conversation history
 - **Format:** Array of message objects
 - **Fields:** timestamp, author, content, attachments, reactions
-- **Size:** Variable (depends on export)
+- **Size:** Variable (depends on export; about 17 MB per the backup notes)
 - **Current Status:** ✅ Loaded by chat-data.js
 
 #### **Chat2.0.json** - Instagram Export
@@ -864,21 +937,49 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 
 #### **claude proccess.mp4** - Documentation Video
 - **Purpose:** Process documentation (possibly development walkthrough)
-- **Current Status:** ✅ Present (not linked in UI)
+- **Current Status:** ⚠️ Conflicting notes: listed as present here, but reported missing as of 23/09/2026 (not linked in UI). Verify.
 
 ---
 
 ### Documentation Files (2 files)
 
 #### **PROJECT-STATUS.md** - This File
-- **Purpose:** Comprehensive project documentation
-- **Sections:** Overview, completed features, planned features, technical debt, suggestions, file inventory
+- **Purpose:** Comprehensive project documentation (also read by AI coding assistants, see the guardrails section at the top)
+- **Sections:** AI guardrails, overview, completed features, planned features, technical debt, suggestions, file inventory
 - **Current Status:** ✅ Living document, regularly updated
 
 #### **WHATSAPP-CONVERSION-INSTRUCTIONS.md** - Conversion Guide
 - **Purpose:** Step-by-step instructions for converting WhatsApp exports
 - **Contents:** Export process, running converter, troubleshooting
 - **Current Status:** ✅ Complete
+
+---
+
+### Tooling & Config Files (added 06/10/2026)
+
+#### **backup.ps1** - Snapshot Backup Script
+- **Purpose:** One-command zip of the whole project into `backups/`, keeping the last 10 snapshots
+- **Current Status:** ✅ Created and tested (23/09/2026)
+
+#### **.gitignore** and **.gitattributes**
+- **.gitignore:** keeps local snapshots, OS junk, editor folders, `node_modules/` and temp/log files out of Git. *Check that it also excludes `backups/*.zip`.*
+- **.gitattributes:** routes Chat JSONs, profile photos, videos and large exports through Git LFS (requires Git LFS installed: `git lfs version`)
+- **Current Status:** ✅ In place
+
+#### **tools/css_audit.py** - CSS Audit Script
+- **Purpose:** Read-only report: classes defined in `decor.css` but never used, classes used in markup but not defined, duplicate selectors, page CSS files that re-declare `decor.css` selectors, and hard-coded colours
+- **Usage:** from the project root, `python tools\css_audit.py > tools\audit-output.txt`
+- **Limits:** only scans `.html`/`.js` files in the project root (not subfolders). Dynamically built class names can show as falsely "dead", so don't delete anything on its say-so alone. The duplicate-selector section is noisy (media queries and keyframe steps).
+- **Current Status:** ✅ Usable
+
+#### **tools/css-audit.ps1** - PowerShell version of the audit
+- **Status:** ❌ Likely broken (quoting errors in leftover lines) and less thorough than the Python version. Recommended for deletion.
+
+#### **backups/** - Snapshot folder
+- Zip snapshots from `backup.ps1`. Git-ignored. Never read or open these.
+
+#### Planned: **backup.html** + **backup.js**
+- Export/restore of all in-browser (`ml.*` localStorage) data as one JSON file. Not yet built.
 
 ---
 
@@ -902,18 +1003,26 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 
 ## 🔄 Recent Development History
 
-### Latest Session (Backup & Version Control — 23/09/2026)
+### Latest Session (CSS Modernisation Planning, 06/10/2026)
+1. ✅ Prepared a detailed refinement prompt for `decor.css` (tokens, typography, card consolidation, dark mode, accessibility, cleanup)
+2. ✅ Created `tools/css_audit.py` (and a broken PowerShell duplicate)
+3. ✅ Added AI-assistant guardrails to this document after a session overflowed its context window (see Critical Incidents)
+4. ✅ Marked Date Ideas as complete in the planning sections
+5. ⏳ First Git commit still to be confirmed before editing `decor.css`
+6. ⏳ `decor.css` modernisation not yet applied
+
+### Previous Session (Backup & Version Control, 23/09/2026)
 1. ✅ Initialized a local Git repository with Git LFS
 2. ✅ Added `.gitignore` (keeps `backups/`, OS junk and editor files out of the repo)
 3. ✅ Added `.gitattributes` (routes Chat JSONs and media through Git LFS)
-4. ✅ Created and tested `backup.ps1` — snapshot zip with rolling retention (26.7 MB → 7.6 MB, keeps last 10)
+4. ✅ Created and tested `backup.ps1`: snapshot zip with rolling retention (26.7 MB → 7.6 MB, keeps last 10)
 5. ✅ Removed `dates-CORRUPTED-BACKUP.html` (was an unusable fragment of shared.js; verified as recoverable from a snapshot first)
 6. ✅ Determined the active WhatsApp converter is the Python one (proved via CRLF line endings + file timestamps), removed the unused `whatsapp-converter.js`
 7. ✅ Updated `WHATSAPP-CONVERSION-INSTRUCTIONS.md` to use `python whatsapp-converter.py`
-8. ⏳ LocalStorage export page (`backup.html` + `backup.js`) — planned
-9. ⏳ First Git commit — pending
+8. ⏳ LocalStorage export page (`backup.html` + `backup.js`): planned
+9. ⏳ First Git commit: pending
 
-### Previous Session (Date Ideas Implementation)
+### Earlier Session (Date Ideas Implementation)
 1. ✅ Created complete dates.html from scratch
 2. ✅ Implemented dates.js (~500 lines)
 3. ✅ Added dates.css with terracotta theme
@@ -932,6 +1041,9 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 - **dates.html corruption:** File contained JavaScript code instead of HTML
   - Resolution: Complete rebuild, renamed corrupted file to dates-CORRUPTED-BACKUP.html
   - Root cause: Edit operation error
+- **AI context overflow (06/10/2026):** An assistant searched recursively from the parent `My Websites` folder, which also holds other sites. It printed whole lines from huge minified build files (a bundled syntax-highlighter library and a compiled stylesheet) and exceeded its context limit.
+  - Resolution: new session with strict scope and search rules
+  - Prevention: the "For AI Coding Assistants" section at the top of this document
 
 ---
 
@@ -947,6 +1059,8 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 - **Files:** lowercase, hyphens (dates.html, chat-data.js)
 - **localStorage keys:** Prefixed with "ml." (ml.dates.v1, ml.quran.plan.v1)
 - **CSS classes:** BEM-inspired (site-header, page-hero, panel-title)
+- **CSS state classes:** `is-*` prefix for JavaScript-toggled state (`is-active`, `is-done`, `is-visible`)
+- **CSS design tokens:** defined once in `:root` of `decor.css` (`--ink`, `--rose`, `--paper`, etc.), reused everywhere
 - **JavaScript:** camelCase for functions, UPPER_CASE for constants
 
 ### Data Storage Strategy
@@ -957,7 +1071,7 @@ Most importantly: **this website is a gift to your future selves.** Every featur
 
 ### Responsive Design
 - **Mobile-first approach:** Base styles for mobile, enhanced for desktop
-- **Breakpoints:** Defined in decor.css
+- **Breakpoints:** Defined in decor.css (960px, 720px, 1000px)
 - **Touch-friendly:** Large tap targets, mobile menu
 - **Tested on:** Desktop browsers, mobile browsers (assumed)
 
@@ -1041,12 +1155,12 @@ localStorage ←→ dates.js / quran.js / secret.html
 ### Backup Strategy ✅ IMPLEMENTED (23/09/2026)
 Three layers now protect the project:
 
-1. **Version control (Git + Git LFS)** — a local Git repository tracks every source file. Large files (`Chat.json` ~17 MB, profile photos, WhatsApp exports) are stored through Git LFS so history stays small.
-2. **File snapshots (`backup.ps1`)** — one command zips the whole project (Critical Dependencies included) into `backups/`, keeping the last 10 snapshots automatically.
-3. **User-created content export** — the in-browser data (Quran log, watchlist, dates, secret drafts, starred moments, after-hours state) lives in localStorage and must be exported from the browser, since files and Git cannot see it.
+1. **Version control (Git + Git LFS)**: a local Git repository tracks every source file. Large files (`Chat.json` ~17 MB, profile photos, WhatsApp exports) are stored through Git LFS so history stays small.
+2. **File snapshots (`backup.ps1`)**: one command zips the whole project (Critical Dependencies included) into `backups/`, keeping the last 10 snapshots automatically.
+3. **User-created content export**: the in-browser data (Quran log, watchlist, dates, secret drafts, starred moments, after-hours state) lives in localStorage and must be exported from the browser, since files and Git cannot see it.
 
 - **Manual exports:** Each feature still provides a per-section JSON download
-- **See:** the new "Backup & Version Control" section below for exact commands
+- **See:** the "Backup & Version Control" section below for exact commands
 
 ---
 
@@ -1058,7 +1172,7 @@ Three layers now protect the project:
 | --- | --- | --- |
 | Git + Git LFS | `.git/`, `.gitignore`, `.gitattributes` | Version history for all source files; large media routed through LFS |
 | Snapshot script | `backup.ps1` | One-command zip of the whole project into `backups/`, keeps last 10 |
-| LocalStorage export | `backup.html`, `backup.js` | Export/restore all in-browser data as one JSON file |
+| LocalStorage export | `backup.html`, `backup.js` | Export/restore all in-browser data as one JSON file *(planned, not yet built)* |
 
 ### Making a file snapshot
 
@@ -1073,11 +1187,23 @@ powershell -ExecutionPolicy Bypass -File .\backup.ps1 -Keep 15
 powershell -ExecutionPolicy Bypass -File .\backup.ps1 -SkipChatData
 ```
 
-Snapshots land in `backups/my-lovely-<timestamp>.zip` and are git-ignored.
+Snapshots land in `backups/my-lovely-<timestamp>.zip` and are git-ignored. *(Confirm that `.gitignore` really covers `backups/*.zip`. If `git status` lists a zip, add that line.)*
+
+### Making the first Git commit (still pending)
+
+In VS Code: Source Control panel (`Ctrl+Shift+G`), check the file list (no zips, no keys), type a message such as `Restore point before CSS modernisation`, click **Commit**. Or in the terminal:
+
+```bash
+git status
+git add .
+git commit -m "Restore point before CSS modernisation"
+```
+
+To undo a bad change to one file later: right-click it in Source Control and choose **Discard Changes**.
 
 ### Backing up your in-browser data (localStorage)
 
-Open `backup.html` in the browser and use **Export all data**. This captures every `ml.*` key:
+Once `backup.html` is built, open it in the browser and use **Export all data**. This captures every `ml.*` key:
 
 ```
 ml.dates.v1, ml.watchlist.v1, ml.quran.plan.v1,
@@ -1100,7 +1226,7 @@ git log --oneline       # see the history
 
 - **Git** catches code changes and lets you roll back a file.
 - **Snapshots** give a portable, Git-free full copy (handy if the repo itself gets damaged).
-- **LocalStorage export** is the only way to save user-created content — it lives in the browser, not in any file.
+- **LocalStorage export** is the only way to save user-created content. It lives in the browser, not in any file.
 
 ---
 
@@ -1128,5 +1254,5 @@ If continuing this project, these would be helpful:
 
 ---
 
-*File inventory last updated: 23 September 2026*  
-*Total files documented: 33 present (31 source + 2 hidden config: `.gitignore`, `.gitattributes`) · 2 planned (`backup.html`, `backup.js`)*
+*File inventory last updated: 6 October 2026*  
+*Total files documented: 33 present (31 source + 2 hidden config: `.gitignore`, `.gitattributes`) plus `backup.ps1`, `tools/css_audit.py` and `tools/css-audit.ps1` (recommended for deletion) · 2 planned (`backup.html`, `backup.js`). The count is approximate, so re-check against the folder.*
