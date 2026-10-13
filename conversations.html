@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conversations — My Lovely</title>
+
+    <meta name="description" content="The messages worth keeping, and the numbers behind a year of talking.">
+
+    <link rel="stylesheet" href="decor.css">
+    <link rel="stylesheet" href="after-hours.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="page-hero section-pad">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Our conversations</p>
+                    <h1>The parts worth keeping.</h1>
+                    <p class="page-lede">
+                        Not every message, because nobody is ever going to
+                        read twenty thousand of those. This page keeps what
+                        was pinned, what one of you reacted to, and what was
+                        clearly about something that mattered — with the date
+                        and time still attached.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <span class="badge" id="conv-moments-count">Reading…</span>
+                    <div class="page-actions">
+                        <button class="button button-ghost button-small" type="button" id="conv-copy-starred">
+                            Copy starred
+                        </button>
+                        <button class="button button-ghost button-small" type="button" id="conv-refresh">
+                            Rebuild
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOADING AND ERRORS ================= -->
+
+        <section class="section-pad" style="padding-top:0;">
+
+            <div class="load-state" id="conv-load">
+                <span class="spinner" aria-hidden="true"></span>
+                <span id="conv-load-text">Opening your archive…</span>
+            </div>
+
+            <div class="empty-state" id="conv-error" hidden>
+                <strong>The archive could not be opened</strong>
+                <p id="conv-error-text"></p>
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <div id="conv-content" hidden>
+
+            <!-- Numbers -->
+
+            <section class="section-pad" style="padding-top:0;">
+
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">A year, counted</p>
+                        <h2>What a year of talking looks like.</h2>
+                    </div>
+                    <p class="section-note" id="conv-span-note"></p>
+                </div>
+
+                <div class="metric-grid">
+
+                    <article class="metric reveal">
+                        <strong id="conv-messages">—</strong>
+                        <span>Messages</span>
+                        <small id="conv-messages-note"></small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-active-days">—</strong>
+                        <span>Days you spoke</span>
+                        <small id="conv-active-note"></small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-span-days">—</strong>
+                        <span>Days since hello</span>
+                        <small>From the first message to the last</small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-love">—</strong>
+                        <span>“I love you”</span>
+                        <small>Typed out in full</small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-laughs">—</strong>
+                        <span>Laughs</span>
+                        <small>Every lol, haha and lmao</small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-calls">—</strong>
+                        <span>Calls</span>
+                        <small>Conversations with no transcript</small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-photos">—</strong>
+                        <span>Photos and files</span>
+                        <small>Sent back and forth</small>
+                    </article>
+
+                    <article class="metric reveal">
+                        <strong id="conv-reactions">—</strong>
+                        <span>Reactions</span>
+                        <small>Left on each other's messages</small>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- Who talks more, and in which emoji -->
+
+            <section class="section-pad">
+
+                <div class="grid-2">
+
+                    <div class="panel reveal">
+
+                        <div class="panel-head">
+                            <h2 class="panel-title">Who fills the silence</h2>
+                        </div>
+
+                        <div class="split-bar" id="conv-split"></div>
+
+                        <p class="muted-text" id="conv-split-note" style="margin-top:12px;"></p>
+
+                        <div class="panel-head" style="margin-top:28px;">
+                            <h2 class="panel-title">Little facts</h2>
+                        </div>
+
+                        <ul class="fact-list" id="conv-facts"></ul>
+
+                    </div>
+
+                    <div class="panel reveal reveal-delay">
+
+                        <div class="panel-head">
+                            <h2 class="panel-title">How you actually talk</h2>
+                            <p class="panel-note">Most used emoji</p>
+                        </div>
+
+                        <div class="emoji-chart" id="conv-emoji"></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Milestones -->
+
+            <section class="section-pad">
+
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">The dates that mark it out</p>
+                        <h2>Milestones.</h2>
+                    </div>
+                    <p class="section-note">Found automatically from the archive, not typed in by hand.</p>
+                </div>
+
+                <div class="moment-list" id="conv-milestones"></div>
+
+            </section>
+
+
+            <!-- Moments -->
+
+            <section class="section-pad">
+
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">Everything worth re-reading</p>
+                        <h2>Moments.</h2>
+                    </div>
+                    <p class="section-note">
+                        Star the ones you want to find again. Starred moments
+                        stay on this device.
+                    </p>
+                </div>
+
+                <div class="source-bar" id="conv-sources"></div>
+
+                <div class="filter-bar" id="conv-topics"></div>
+
+                <div class="filter-bar">
+
+                    <div id="conv-people" class="cluster"></div>
+
+                    <div class="search-field">
+                        <label class="field-label" for="conv-search" style="position:absolute;left:-9999px;">
+                            Search moments
+                        </label>
+                        <input type="search" id="conv-search" class="input" placeholder="Search what was said…" autocomplete="off">
+                    </div>
+
+                    <select class="select" id="conv-sort" style="max-width:190px;" aria-label="Sort moments">
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                        <option value="meaningful">Most meaningful</option>
+                    </select>
+
+                </div>
+
+                <div class="moment-list" id="conv-moments"></div>
+
+                <div class="empty-state" id="conv-moments-empty" hidden>
+                    <strong>Nothing matches that</strong>
+                    <p>Try a different topic, or clear the search box.</p>
+                </div>
+
+                <div class="cluster" style="justify-content:center;margin-top:22px;">
+                    <button class="button button-ghost" type="button" id="conv-more" hidden>
+                        Show more
+                    </button>
+                </div>
+
+                <div class="cluster" style="justify-content:center;margin-top:32px;padding-top:32px;border-top:1px solid rgba(0,0,0,0.06);">
+                    <button class="button button-ghost button-small" type="button" id="conv-reset-after-hours">
+                        Reset After Hours
+                    </button>
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ================= AFTER HOURS ================= -->
+
+        <section class="after-hours-curtain" id="after-hours-curtain">
+
+                <div class="curtain-inner">
+
+                    <div class="curtain-glow"></div>
+
+                    <p class="eyebrow" style="color: rgba(255,250,244,0.5);">When the lights go out</p>
+
+                    <h2 style="color: #fffaf4; font-size: 2.8rem; margin: 0 0 18px;">The parts you wouldn't read aloud.</h2>
+
+                    <p class="curtain-lede">
+                        The flirting, the teasing, the messages that made you blush.
+                        Grouped by night, scored by heat, and locked behind this curtain
+                        until you decide to draw it.
+                    </p>
+
+                    <button class="button-curtain" type="button" id="curtain-unlock">
+                        Draw the curtain
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <section class="after-hours-content" id="after-hours-content" hidden>
+
+                <div class="after-hours-inner">
+
+                    <div class="section-heading reveal">
+                        <div>
+                            <p class="eyebrow" style="color: rgba(255,250,244,0.5);">After hours</p>
+                            <h2 style="color: #fffaf4;">The spicy archive.</h2>
+                        </div>
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <p class="section-note" style="color: rgba(255,250,244,0.6); margin: 0;" id="after-hours-note"></p>
+                            <button class="button button-ghost button-small" type="button" id="after-hours-lock" style="color: rgba(255,250,244,0.8); border-color: rgba(176,138,87,0.4);">
+                                Lock curtain
+                            </button>
+                            <button class="button button-ghost button-small" type="button" id="after-hours-unhide" style="color: rgba(255,250,244,0.8); border-color: rgba(176,138,87,0.4);">
+                                Show hidden nights
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="load-state" id="after-hours-load" hidden>
+                        <span class="spinner" aria-hidden="true"></span>
+                        <span style="color: rgba(255,250,244,0.7);">Finding the spicy nights…</span>
+                    </div>
+
+                    <div class="filter-bar" id="after-hours-filters" style="margin-bottom: 24px;">
+                    </div>
+
+                    <div class="night-list" id="after-hours-nights"></div>
+
+                    <div class="empty-state" id="after-hours-empty" hidden>
+                        <strong style="color: #fffaf4;">Nothing found</strong>
+                        <p style="color: rgba(255,250,244,0.6);">Try a different heat level, or the archive is too wholesome.</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+    <script src="chat-data.js"></script>
+    <script src="conversations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        =====================================================
+        PAGE TEMPLATE
+
+        Copy this file whenever you build a new page, then:
+
+        1. Change the <title> and the description.
+        2. Change the hero eyebrow, heading and lede.
+        3. Put your sections where the marked block is.
+        4. Add a <script> at the bottom if the page needs one.
+
+        The header, the footer, the menu, the dropdown, the
+        reveals and the active nav link all work on their own
+        as long as shared.js is loaded.
+        =====================================================
+    -->
+
+    <title>Page name — My Lovely</title>
+
+    <meta name="description" content="One line about what this page holds.">
+
+    <link rel="stylesheet" href="decor.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-shell">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+
+    <header class="site-header">
+
+        <a href="index.html" class="brand">
+            <span class="brand-mark">I</span>
+            <span class="brand-text">
+                <strong>Ilham</strong>
+                <small>My Lovely</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="site-nav" aria-label="Main">
+
+            <a href="index.html">Home</a>
+            <a href="story.html">Our Story</a>
+            <a href="conversations.html">Our Convos</a>
+            <a href="quran.html">Quran Tracker</a>
+
+            <div class="dropdown">
+
+                <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+                    Dashboard
+                    <span class="dropbtn-caret" aria-hidden="true">▼</span>
+                </button>
+
+                <div class="dropdown-content">
+                    <a href="dashboard.html">Grid overview</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="watchlist.html">🍿 Watchlists</a>
+                    <a href="dates.html">🧡 Date ideas</a>
+                    <a href="secret.html">🤫 Secret page</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="memories.html">📸 Memories <em>Soon</em></a>
+                    <a href="letters.html">💌 Letters to u <em>Soon</em></a>
+                    <a href="tracker.html">🗓️ Tracker <em>Soon</em></a>
+                    <a href="bucketlist.html">✨ Bucket list <em>Soon</em></a>
+                    <a href="places.html">🌍 Places we've been <em>Soon</em></a>
+                    <a href="pics.html">🖼️ Pics <em>Soon</em></a>
+                    <a href="music.html">🎵 Our music <em>Soon</em></a>
+                    <a href="surprise.html">🎁 Surprise me <em>Soon</em></a>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="page-hero section-pad">
+
+            <div class="page-hero-inner">
+
+                <div class="reveal">
+                    <p class="eyebrow">Short label</p>
+                    <h1>The page heading.</h1>
+                    <p class="page-lede">
+                        Two or three lines saying what this page is for, in
+                        the same voice as the rest of the site.
+                    </p>
+                </div>
+
+                <div class="page-hero-aside reveal reveal-delay">
+                    <div class="page-actions">
+                        <a href="dashboard.html" class="button button-ghost button-small">
+                            Back to dashboard
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= YOUR CONTENT ================= -->
+
+        <section class="section-pad">
+
+            <div class="section-heading reveal">
+                <div>
+                    <p class="eyebrow">Section label</p>
+                    <h2>Section heading.</h2>
+                </div>
+                <p class="section-note">An optional note on the right.</p>
+            </div>
+
+            <div class="panel reveal">
+                <div class="panel-head">
+                    <h2 class="panel-title">A panel</h2>
+                    <p class="panel-note">Small note</p>
+                </div>
+                <p class="muted-text">
+                    Panels, .grid-2, .grid-3, .metric-grid, .explore-grid,
+                    .moment-list and .empty-state are all ready to use.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="site-footer">
+        <div>
+            <strong>Ilham · My Lovely</strong>
+            <span>Made with love, for us.</span>
+        </div>
+        <span>
+            © <span id="year"></span>
+            Our little corner
+        </span>
+    </footer>
+
+    <div class="page-wipe"></div>
+
+    <script src="shared.js"></script>
+
+</body>
+</html>

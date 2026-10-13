@@ -1,0 +1,22 @@
+# =========================================================
+# My Lovely — Git LFS tracking
+#
+# Large media and the big chat exports go through LFS so
+# the repository history stays small. Everything else is
+# plain text and diffs normally.
+# =========================================================
+
+# Profile photos
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.png  filter=lfs diff=lfs merge=lfs -text
+
+# Video
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+
+# Large conversation exports and their raw source
+Chat.json           filter=lfs diff=lfs merge=lfs -text
+Chat2.0.json        filter=lfs diff=lfs merge=lfs -text
+Chat3.0.json        filter=lfs diff=lfs merge=lfs -text
+whatsapp-export.txt filter=lfs diff=lfs merge=lfs -text

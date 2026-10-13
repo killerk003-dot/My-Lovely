@@ -1,0 +1,24 @@
+# =========================================================
+# My Lovely — things that should NOT be committed
+# =========================================================
+
+# Local snapshot backups produced by backup.ps1
+backups/
+
+# One-off manual snapshots
+snapshots/
+*.bak
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editor / tooling
+.vscode/
+.idea/
+node_modules/
+
+# Temporary files
+*.tmp
+*.log
