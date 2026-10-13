@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "name": "my-lovely-website",
   "private": true,
@@ -8,15 +7,4 @@
   "dependencies": {
     "serve": "^14.2.5"
   }
-=======
-{
-  "name": "my-lovely-website",
-  "private": true,
-  "scripts": {
-    "start": "npx serve -s . -l ${PORT:-3000}"
-  },
-  "dependencies": {
-    "serve": "^14.2.5"
-  }
->>>>>>> 957deb29a016a5d0db0502ac3f1d995674f649f4
 }
